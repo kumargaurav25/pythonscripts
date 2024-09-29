@@ -17,11 +17,14 @@ def mortgage_calculator(principal, annual_interest_rate, years, monthly_hoa_fees
     return total_monthly_payment
 
 # Example usage:
-principal_amount = 750000  # The loan amount
-interest_rate = 5.2  # Annual interest rate as a percentage
-loan_term = 30  # Term of the loan in years
-hoa_fees = 100  # Monthly HOA fees
-property_tax = 13000  # Annual property tax
-
+saleprice = float(input("what is the price of the property ")) #750000  
+downpayment = float(input("what is the downpayment amount "))
+principal_amount = saleprice - downpayment # The loan amount
+print("The loan amount is "+ str(principal_amount))
+interest_rate = float(input("what is the interest rate "))  # Annual interest rate as a percentage
+loan_term = float(30)  # Term of the loan in years
+hoa_fees = float(input("HOA if any? "))  # Monthly HOA fees
+property_tax_rate = float(input("what is the property tax rate? 0.88% for old folsom, 1.33% for new folsom "))  # Annual property tax
+property_tax = saleprice * property_tax_rate / 100
 total_monthly_payment = mortgage_calculator(principal_amount, interest_rate, loan_term, hoa_fees, property_tax)
 print(f"The total monthly mortgage payment, including HOA fees and property tax, is: ${total_monthly_payment:.2f}")
